@@ -1,12 +1,22 @@
-import React from 'react'
-import './Main.css'
+import React, { useState } from 'react';
+import './Main.css';
 
 const Main = () => {
+  const [isVisible, setIsVisible] = useState(true);
+
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
+
   return (
     <div>
-     <h1 className='external'>hi, this from external react app</h1> 
+      <button onClick={toggleVisibility}>
+        {isVisible ? 'Hide' : 'Show'} Message
+      </button>
+      {isVisible && <h1 className='external'>Hi, this is from the external React app</h1>}
     </div>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;
+
